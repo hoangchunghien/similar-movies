@@ -14,3 +14,6 @@ Download movies dataset from [kaggle](https://www.kaggle.com/rounakbanik/the-mov
 ```
 pip install -r requirements.txt
 ```
+
+## How to run
+Follow notebook file [solution.ipynb](https://github.com/hoangchunghien/ml-movie-recommendation/blob/master/solution.ipynb) to understand how the solution work.
