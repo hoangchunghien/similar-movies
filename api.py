@@ -15,7 +15,11 @@ data['overview'] = data['overview'].fillna('')
 tfidf = TfidfVectorizer(stop_words='english')
 tfidf_matrix = tfidf.fit_transform(data['overview'])
 
-def get_recommendations(index):
+indices = pd.Series(data.index, index=data['id']).drop_duplicates()
+
+def get_recommendations(id):
+    index = indices[id]
+
     # Get the pairwsie similarity scores of all movies with that movie
     cosine_sim = linear_kernel(tfidf_matrix[index], tfidf_matrix)
     sim_scores = list(enumerate(cosine_sim[0]))
@@ -50,11 +54,11 @@ def movies():
             start=start,
             limit=limit)
 
-@app.route('/movies/<int:index>', methods=['GET'])
-def movie(index):
+@app.route('/movies/<id>', methods=['GET'])
+def movie(id):
     return jsonify(
-        data=json.loads(data[index:index+1].to_json(orient='records')),
-        similar_movies=json.loads(get_recommendations(index).to_json(orient='records')))
+        data=json.loads(data.iloc[[indices[id]]].to_json(orient='records')),
+        similar_movies=json.loads(get_recommendations(id).to_json(orient='records')))
 
 
 if __name__ == '__main__':
