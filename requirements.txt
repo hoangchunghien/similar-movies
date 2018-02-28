@@ -1,5 +1,4 @@
 aniso8601==2.0.1
-backports.functools-lru-cache==1.5
 click==6.7
 cycler==0.10.0
 Flask==0.12.2
@@ -15,5 +14,4 @@ python-dateutil==2.6.1
 pytz==2018.3
 scikit-learn==0.19.1
 six==1.11.0
-subprocess32==3.2.7
 Werkzeug==0.14.1
