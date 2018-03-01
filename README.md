@@ -25,5 +25,14 @@ Follow notebook file [solution.ipynb](https://github.com/hoangchunghien/ml-movie
 ```
 python api.py
 ```
+- **GET** `/movies`
+```
+{"data": [{}, ...], "count": int, "start": int, "limit": int}
+```
+- **GET** `/movies/<id>`
+```
+{"data": [{}], "similar-movies": [{}, ...]}
+```
 
 ## Run as a website
+Comming soon
